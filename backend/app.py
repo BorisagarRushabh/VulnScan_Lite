@@ -156,7 +156,7 @@ def home():
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"ok": True, "status": "running"}), 200
-
+print("🚀 Flask app starting... listening on 0.0.0.0")
 # ----------------------- Run App -----------------------
 if __name__ == "__main__":
     import os
