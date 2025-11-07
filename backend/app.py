@@ -160,6 +160,5 @@ def health_check():
 # ----------------------- Run App -----------------------
 if __name__ == "__main__":
     import os
-    port = int(os.environ.get("PORT", 8000))  # Use Railway’s dynamic port
-    app.run(host="0.0.0.0", port=port)
-
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port, debug=True)
