@@ -149,10 +149,17 @@ def get_job(job_id):
     return jsonify({"ok": True, "job": job}), 200
 
 # ----------------------- Health Check -----------------------
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"ok": True, "message": "VulnScan Lite backend is live"}), 200
+
 @app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"ok": True, "status": "running"}), 200
 
 # ----------------------- Run App -----------------------
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 8000))  # Use Railway’s dynamic port
+    app.run(host="0.0.0.0", port=port)
+
